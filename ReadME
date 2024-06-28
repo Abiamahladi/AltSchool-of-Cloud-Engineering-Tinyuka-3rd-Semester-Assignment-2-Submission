@@ -1,0 +1,44 @@
+Terraform Project: Deploying S3 Bucket with CloudFront Distribution
+This project uses Terraform to deploy an S3 bucket configured as a static website and a CloudFront distribution to serve the content globally.
+
+Prerequisites
+Before you begin, ensure you have the following installed:
+
+Terraform (version 5.55.0)
+AWS CLI configured with appropriate credentials
+Getting Started
+Clone the Repository:
+
+bash
+Copy code
+git clone <repository-url>
+cd <repository-directory>
+Initialize Terraform:
+
+bash
+Copy code
+terraform init
+Configure Terraform Variables:
+
+Update the variables in variables.tf or create a terraform.tfvars file to set your AWS region, bucket name, domain name, etc.
+
+Review and Apply Terraform Plan:
+
+bash
+Copy code
+terraform plan
+terraform apply
+This will show you the execution plan and then apply it to create your resources on AWS.
+
+Access Your Website:
+
+After Terraform applies the changes, you can access your website using the CloudFront domain name or custom domain configured.
+
+Project Structure
+main.tf: Defines the main infrastructure components (S3 bucket, CloudFront distribution).
+variables.tf: Declares input variables used in main.tf.
+outputs.tf: Defines the outputs (e.g., CloudFront domain name) that are useful after deployment.
+modules/cloudfront/: Contains the CloudFront module configuration (main.tf, variables.tf, outputs.tf).
+Additional Configuration
+Custom Domain: Update CloudFront distribution and Route 53 configuration in main.tf and modules/cloudfront/main.tf for custom domain setup.
+SSL/TLS: Modify CloudFront distribution to use custom SSL/TLS certificates if required.
